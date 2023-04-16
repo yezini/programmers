@@ -1,0 +1,28 @@
+import java.util.*;
+class Solution {
+    public int solution(int[] people, int limit) {
+        int answer = 0;
+        //몸무게가 적은 사람부터 정렬
+        Arrays.sort(people);
+        
+        int min_weight=0;
+        int max_weight=people.length-1;
+    
+        while(min_weight<=max_weight){
+        if(people[min_weight]+people[max_weight]<=limit){
+            answer++;
+            min_weight++;
+            max_weight--;
+        }else{
+        answer++;//limit를 넘게한 최대 몸무게를 가진 사람의 수 증가
+        max_weight--;
+        }
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Solution s=new Solution();
+        System.out.println(s.solution(new int[]{70,50,80,50},100));
+    }
+  
+}
