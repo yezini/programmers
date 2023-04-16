@@ -1,0 +1,18 @@
+import java.util.*;
+class Solution {
+    public String solution(String s) {
+     
+        String[] arr=s.split("");
+        //["Z","b","c","d","e","f","g"]
+        StringBuilder sb=new StringBuilder();
+        Arrays.sort(arr); // //["Z","b","c","d","e","f","g"]
+        //테스트 케이스 2번 -> 정렬을 한 후 문자를 큰것부터 정렬해야 함 
+        
+        
+        for(int i=arr.length-1;i>=0;i--){
+            sb.append(arr[i]);
+        }
+        String answer=sb.toString();
+        return answer;
+    }
+}
