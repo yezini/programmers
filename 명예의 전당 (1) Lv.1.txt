@@ -13,6 +13,7 @@ public class Solution {
                if(list.get(0)<score[i]){
                    //기존 명예의 전당 목록 < 출연 가수의 점수
                    list.set(0,score[i]);
+                   //list 인덱스 0번째에 해당하는 값을 score[i]로 변환 
                }
            }
             Collections.sort(list);//오름차순으로 정렬 한 후, 가장 작은 값만 가져오면 됨 
