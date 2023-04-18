@@ -15,7 +15,7 @@ public class Solution {
                    list.set(0,score[i]);
                }
            }
-            Collections.sort(list);//내림차순 
+            Collections.sort(list);//오름차순으로 정렬 한 후, 가장 작은 값만 가져오면 됨 
             
             answer[i]=list.get(0);
         }
