@@ -1,0 +1,30 @@
+public class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        //만약 n을 2진수로 변환한 뒤, 1의 개수를 count 하고
+        //n에 1을 더한 후, 다시 2진수로 변환 후 1의 개수를 세면 효율성 낮다
+        
+        //Integer.bitCount() 메서드를 사용하면 입력된 정수를 2진수로 변환한 뒤, 
+        //2진수에 포함된 1을 카운팅해준다. 
+        
+        int n_count=Integer.bitCount(n);//2진수로 변환한 뒤,1의 개수를 저장
+        int count=0;//증가하는 1의 개수를 저장할 변수를 지정
+        
+        while(true){//무한반복
+            n++;//n이 1씩 증가
+            count = Integer.bitCount(n);
+            
+            if(n_count==count){
+                answer=n;
+                break;
+            }
+            
+        }
+        return answer;
+    }
+    public static void main(String[] args){
+        Solution s =new Solution();
+        System.out.print(s.solution(78));
+         System.out.print(s.solution(15));
+    }
+}
