@@ -2,17 +2,19 @@ import java.util.*;
 class Solution {
     public String solution(String s) {
      
-        String[] arr=s.split("");
-        //["Z","b","c","d","e","f","g"]
-        StringBuilder sb=new StringBuilder();
-        Arrays.sort(arr); // //["Z","b","c","d","e","f","g"]
-        //테스트 케이스 2번 -> 정렬을 한 후 문자를 큰것부터 정렬해야 함 
-        
-        
+        String[] arr=s.split("");  
+        //문자열 분할로 인한 문자열 배열 ["Z","b","c","d","e","f","g"]
+  	  Arrays.sort(arr);  // 배열 정렬["Z","b","c","d","e","f","g"]
+	//테스트 케이스 2번 -> 정렬을 한 후 문자를 큰것부터 정렬해야 함 
+
+        StringBuilder sb=new StringBuilder(); // StringBuilder 객체 생성     
+		//인스턴스 생성 시 인스턴스가 가진 문자열 값을 변경하지 못한다는 단점
+		//StringBuilder는 String과 문자열을 더할 때 새로운 객체를 생성하지 않고 기존의 데이터에 더하는 방식 사용(긴 문자열에 유리)     
+    
         for(int i=arr.length-1;i>=0;i--){
-            sb.append(arr[i]);
+            sb.append(arr[i]);   //StringBuilder 객체에 문자열 추가 
         }
-        String answer=sb.toString();
+        String answer=sb.toString(); //리턴되는 값이 String 
         return answer;
     }
 }
