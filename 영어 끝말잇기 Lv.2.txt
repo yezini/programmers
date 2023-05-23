@@ -1,0 +1,56 @@
+//HashMap은 특정 데이터의 저장위치를 해시함수를 통해 바로 알 수 있기 때문에 데이터의 추가, 삭제, 특히 검색이 빠르다는 장점
+// HashMap은 키(Key)값을 통해서만 검색이 가능하며, HashMap의 키(Key) 값은 중복될 수 없고, 밸류(Value) 값은 키(Key) 값이 다르다면 중복이 가능
+//HashMap으로 이미 나온 단어인지 아닌지 확인 
+
+import java.util.*;
+
+class Solution{
+		public int[] solution(int n, String[] words){
+				//n은 사람의 수, 단어를 배열에 저장
+		//1번 사람 : hello, even, now, draw
+		//2번 사람 : one, never, world  
+		//여기서 n은 2에 해당, 1번과 2번을 합친 배열 [hello, one, even, never, now, world, draw] 가 words에 해당
+		int[] answer = new int[2]; //사람과 몇번째에서 끝말잇기가 걸렸는지 리턴하는 값이 2개 이므로 크기 설정  
+
+
+		int gameCount =1;  //처음 시작할 때 
+		String prev = "";
+		int peopleCount = 0;
+
+		//key와 value에 해당
+		Hash<String, Integer> map = new HashMap<>();  
+		
+		for(int i=0;i<words.length;i++){   //7번반복 (0부터 6까지)
+			String now = words[i];
+			peopleCount++;
+			
+			if(i>0){ 		//처음에는 비교할 값이 없으니 아래 조건은 걸리지 않음 
+				char preChar = prev.charAt(prev.length()-1);//문자열에서 해당 번째에 있는 문자만 가져오기, hello의 o에 해당
+				char nowChar = now.charAt(0);  //one의 o에 해당 					
+	
+		
+				//끝말과 처음문자를 확인하여 다를 경우나 이미 해쉬맵에 포함되어 있으면 그 사람이 끝말잇기에서 진 사람이므로 answer 배열에 추가
+				if( preChar != nowChar  ||  map.containsKey(now)){				
+
+				answer[0] =   
+				answer[1] =    
+				break; 
+			
+			}
+
+		}
+				map.put(now, 0);   //hello에 해당
+				prev = now ;    //prev = hello 
+
+				if(peopleCount == n){
+				
+				
+				}
+
+
+
+
+
+		}
+
+}
