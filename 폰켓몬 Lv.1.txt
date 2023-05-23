@@ -1,8 +1,12 @@
 import java.util.*;
 class Solution {
     public int solution(int[] nums) {
+    //testCase1 : [3,1,2,3]         -> 2개       -> return 2
+    //testCase2 : [3,3,3,2,2,4]     -> 3개       -> return 3
+    //testCase3 : [3,3,3,2,2,2]     -> 3개       -> return 2 
+    
         int answer = 0;
-        int n= nums.length/2;//뽑아야 하는 포켓몬 수
+        int n= nums.length/2;       //뽑아야 하는 포켓몬 수
         
         //객체를 중복해서 저장할 수 없는 set 함수 이용
         HashSet<Integer> h=new HashSet<Integer>();
@@ -10,9 +14,11 @@ class Solution {
         for(int s:nums){
             h.add(s);
         }
-        //첫번째 예제일 경우, h : 3, 1, 2 여기중에서 2개 뽑기
-         //두번째 예제일 경우, h : 3, 2, 4 여기중에서 3개 뽑기
-        if(h.size()<n){//n은 뽑아햐 하는 포켓몬의 수 
+        //testCase1         h : 3, 1, 2 여기중에서 2개 뽑기
+        //testCase2        h : 3, 2, 4 여기중에서 3개 뽑기
+        //testCase3         h : 3, 2 여기중에서 3개뽑기
+         
+        if(h.size()<n){     //n은 뽑아햐 하는 포켓몬의 수 
             answer=h.size();
         }else{//종류의 개수
             answer=n;
