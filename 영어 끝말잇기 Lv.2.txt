@@ -32,8 +32,8 @@ class Solution{
 				//끝말과 처음문자를 확인하여 다를 경우나 이미 해쉬맵에 포함되어 있으면 그 사람이 끝말잇기에서 진 사람이므로 answer 배열에 추가
 				if( preChar != nowChar  ||  map.containsKey(now)){				
 
-				answer[0] =   
-				answer[1] =    
+				  answer[0] = peopleCount;  //몇번째 사람인지   
+				 answer[1] = gameCount;  //몇번째에 걸렸는지     
 				break; 
 			
 			}
@@ -42,10 +42,10 @@ class Solution{
 				map.put(now, 0);   //hello에 해당
 				prev = now ;    //prev = hello 
 
-				if(peopleCount == n){
-				
-				
-				}
+				 if(peopleCount == n){      //만약 총 3명이 게임을 했다면 peopleCount와 n이 같아졌을땐 다시 1번 사람부터 끝말잇기를 진행하므로 
+             				   peopleCount = 0;		//peopleCount가 0이 되고 gameCount는 1이 증가하게됨 
+              				   gameCount ++;
+            }
 
 
 
