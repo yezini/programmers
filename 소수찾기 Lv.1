@@ -1,0 +1,22 @@
+class Solution {
+    public int solution(int n) {
+//처음에 n이 5일때 소수 개수 구하는 과정에서 오류남, 1과 5사이의 소수는 2,3,5로 총 3개(5도 포함해야함)
+
+        int answer = 0;
+	for(int i=2;i<=n;i++){       //만약 n이 10이라고 가정 
+		boolean test = true;   //처음에는 무조건 true로 지정, i가 2일때는 무조건 true
+
+		for(int j=2; j<i;j++){
+			if(i % j == 0 ){      //나누어 떨어지면 소수가 될 수 없음 
+			test =false ; 
+			break; 
+}		
+	}
+			if(test==true) answer ++; //범위 내에서 소수의 개수를 구하는 과정 
+
+		}
+
+
+        return answer;
+    }
+}
