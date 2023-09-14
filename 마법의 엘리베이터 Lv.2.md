@@ -15,7 +15,7 @@ class Solution {
             if(remainder == 5){
                   if(storey % 10 >= 5 ){
                       answer += (10 - remainder);
-
+                      storey ++;
               }else{
                       answer += remainder; 
             }
