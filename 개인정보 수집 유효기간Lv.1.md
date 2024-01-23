@@ -11,11 +11,9 @@ import java.util.stream.IntStream;
             term.put(b[0], Integer.parseInt(b[1])); //  (A, 6)
 
 }
-    ArrayList<Integer> result = new ArrayList<>();
-        
+    ArrayList<Integer> result = new ArrayList<>();       
      String[] todayDate= today.split("\\."); // ["2022","05","19"]
      int totalDate  = Integer.parseInt(todayDate[0])*12*28 + Integer.parseInt(todayDate[1])*28 + Integer.parseInt(todayDate[2]); 
-       
         for(int i=0; i< privacies.length; i++){ // 4
            String[] c = privacies[i].split(" "); // ["2021.05.02", "A"]
            String[] d = privacies[0].split("\\."); // ["2021", "05","02"]
@@ -28,15 +26,15 @@ import java.util.stream.IntStream;
 
             if(total <= totalDate){
             result.add(i+1);
-
         }
 }
-            
            return result.stream().flatMapToInt(x -> IntStream.of(x)).toArray();
      }
 }
-/*
 
+
+
+/*
 import java.util.*;
 class Solution {
     public int[] solution(String today, String[] terms, String[] privacies) {
