@@ -1,4 +1,4 @@
-'''java
+```java
 
 import java.util.*;
 import java.util.stream.IntStream;
