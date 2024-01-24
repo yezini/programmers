@@ -20,7 +20,7 @@ class Solution {
 
 			// 문자만
 			if(Character.isLetter(a) && Character.isLetter(b)) {
-       list1.add(Character.toString(a) + Character.toString(b)); // FR 
+			list1.add(Character.toString(a) + Character.toString(b)); // FR RA AN NC CE
 			}
 		}
 
@@ -31,7 +31,7 @@ class Solution {
 
 			// 문자만 
 			if(Character.isLetter(a) && Character.isLetter(b)) {
-		list2.add(Character.toString(a) + Character.toString(b)); // FR
+			list2.add(Character.toString(a) + Character.toString(b)); // FR RE EN NC CH
 			}
         }
 
@@ -39,23 +39,20 @@ class Solution {
 		Collections.sort(list1); 
 		Collections.sort(list2);
 		
-		// 교집합 
-	for(String s : list1) { // FR NC 
-     if(list2.remove(s)) {  // 집합1에 집합2가 포함된다면 삭제
-				i.add(s);   // 교집합에 추가 
+		// 교집합 FR NC
+		for(String s : list1) { 
+    		 if(list2.remove(s)) {  // 집합1에 집합2가 포함된다면 삭제
+				i.add(s);   // 교집합에 추가 FR NC 
 			}
 			u.add(s); 
 		}
 		
-		// 합집합 
+		// 합집합 FR RA AN NC CE RE EN CH
 		for(String s : list2) { // 교집합에서 제외된 것 
 			u.add(s); // 나머지 합집합에 추가 
 		}
-        
-		// 자카드 유사도
-		double aa = i.size();
-		double bb = u.size();
 
+		// 자카드 유사도 구하기 
    		double jakard = 0;
 	
 		if(u.size() == 0)
