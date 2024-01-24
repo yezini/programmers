@@ -6,21 +6,22 @@ import java.util.stream.IntStream;
   class Solution {
     public int[] solution(String today, String[] terms, String[] privacies) {
         
-        HashMap<String, Integer> term = new HashMap<>(); 
+        HashMap<String, Integer> term = new HashMap<>(); // 약관 종류와 유효기간으로 맵 생성 
         for(String a : terms){
             String[] b = a.split(" ");      // ["A","6"]
             term.put(b[0], Integer.parseInt(b[1])); //  (A, 6)
 
 }
-    ArrayList<Integer> result = new ArrayList<>();       
-     String[] todayDate= today.split("\\."); // ["2022","05","19"]
-     int totalDate  = Integer.parseInt(todayDate[0])*12*28 + Integer.parseInt(todayDate[1])*28 + Integer.parseInt(todayDate[2]); 
+      ArrayList<Integer> result = new ArrayList<>();
+
+      String[] todayDate= today.split("\\."); // ["2022","05","19"] //. 을 기준으로 개인정보 수집 일자 분리하여 문자열 배열 생성 
+      int totalDate  = Integer.parseInt(todayDate[0])*12*28 + Integer.parseInt(todayDate[1])*28 + Integer.parseInt(todayDate[2]); //오늘 날짜의 총 일수를 구함 
         for(int i=0; i< privacies.length; i++){ // 4
            String[] c = privacies[i].split(" "); // ["2021.05.02", "A"]
-           String[] d = privacies[0].split("\\."); // ["2021", "05","02"]
+           String[] d = c[0].split("\\."); // ["2021", "05","02"]
           
             int year = Integer.parseInt(d[0]); // 2021
-            int month = Integer.parseInt(d[1]) + term.get(b[1]); // 11
+            int month = Integer.parseInt(d[1]) + term.get(c[1]); // 약관 종류 A의 유효기간을 더하여 month 구하기
             int day = Integer.parseInt(d[2]); // 2
             
             int total = (year*12*28) + (month*28) + day;
@@ -29,7 +30,7 @@ import java.util.stream.IntStream;
             result.add(i+1);
         }
 }
-           return result.stream().flatMapToInt(x -> IntStream.of(x)).toArray();
+           return result.stream().flatMapToInt(x -> IntStream.of(x)).toArray(); // flatMapToInt : 일반 스트림을 IntStream으로 변환하여 오름차순으로 정렬 
      }
 }
 
