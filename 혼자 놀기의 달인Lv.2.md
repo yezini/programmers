@@ -5,14 +5,14 @@ class Solution {
     public int solution(int[] cards) {
         int n = cards.length;
         
-		int[][] route = new int[n][n]; // 상자를 열었을 때 다음 상자로 이동
+		int[][] r = new int[n][n]; // 상자를 열었을 때 다음 상자로 이동
 		for (int i = 0; i < n; i++) {
-			route[i][cards[i] - 1] = 1;
+			r[i][cards[i] - 1] = 1;
 		}
 
 	PriorityQueue<Integer> cnts = new PriorityQueue<>(Collections.reverseOrder());
 		for (int i = 0; i < n; i++) {
-			if (route[i][cards[i] - 1] == 1) {
+			if (r[i][cards[i] - 1] == 1) {
 				// 상자 경로
 				int r1 = i;
 				int r2 = cards[i] - 1;
@@ -20,9 +20,9 @@ class Solution {
 				// 연 상자의 개수
 				int cnt = 0;
 
-				while (route[r1][r2] != 0) {
+				while (r[r1][r2] != 0) {
 					// 현재 상자 열기
-					route[r1][r2] = 0;
+					r[r1][r2] = 0;
 
 					// 연 상자의 개수 증가
 					cnt++;
@@ -43,9 +43,9 @@ class Solution {
 
 		// 1번 상자 그룹에 속한 상자의 수와 2번 상자 그룹에 속한 상자의 수를 곱하기
 		// 상자의 수가 가장 많은 두 그룹을 선정
-		int group1 = cnts.poll();
-		int group2 = cnts.poll();
-		return group1 * group2;
+		int group1= cnts.poll();
+		int group2= cnts.poll();
+		return group2 * group1;
     }
 }
 ```
