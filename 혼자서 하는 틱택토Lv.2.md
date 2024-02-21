@@ -1,0 +1,23 @@
+```java
+class Solution {
+    public int solution(String[] board) {
+     int succes=1,fail=0;
+        
+        char[][] b = new char[board.length][board.length];
+        int o_cnt = 0;
+        int x_cnt = 0;
+        
+        for(int i=0;i<board.length;i++){
+            for(int j=0;j<board.length;j++){
+                char c = board[i].charAt(j);
+                if(c=='O')       o_cnt ++;
+                else if(c=='X')  x_cnt ++;
+                b[i][j]= c;
+            }
+        }
+        if(x_cnt > o_cnt || o_cnt-x_cnt > 1  ) return fail;
+        
+    }
+}
+
+```
