@@ -15,7 +15,7 @@ class Solution {
         }
         for(int i=0;i<parkHeight;i++){
             for(int j=0;j<parkWeight;j++){
-                if(parkpark[i][j].equals("S")){//S에 해당하는 로봇 위치를 변수에 담아기
+                if(parkpark[i][j].equals("S")){//S에 해당하는 로봇 위치를 변수에 담기
                     robotHeight=i;
                     robotWeight=j;
                     break;
@@ -35,7 +35,8 @@ class Solution {
                            break;     //로봇 위치보다 이동 횟수가 더 크면 H좌표가 줄어들어서 0보다 작아질 수 있는 오류
                     }
                     for(int n=1;n<=count;n++){
-                        if(parkpark[robotHeight-n][robotWeight].equals("X")){ //robotHeight-n 만큼 북쪽으로 이동, 만약 X를 만나게되면 go를 false로 하여 switch문 통과
+                        if(parkpark[robotHeight-n][robotWeight].equals("X")){ //robotHeight-n 만큼 북쪽으로 이동
+                        //만약 X를 만나게되면 go를 false로 하여 switch문 통과
                             go = false;
                     }
                     }
@@ -49,7 +50,8 @@ class Solution {
                             break;
                     }
                     for(int n=1;n<=count;n++){
-                        if(parkpark[robotHeight+n][robotWeight].equals("X")){//robotHeight+n 만큼 남쪽으로 이동, 만약 X를 만나게되면 go를 false로 하여 switch문 통과
+                        if(parkpark[robotHeight+n][robotWeight].equals("X")){//robotHeight+n 만큼 남쪽으로 이동
+                        //만약 X를 만나게되면 go를 false로 하여 switch문 통과
                             go = false;
                     }
                     }
@@ -63,7 +65,8 @@ class Solution {
                             break;
                     }
                      for(int n=1;n<=count;n++){
-                        if(parkpark[robotHeight][robotWeight-n].equals("X")){//robotWeight-n 만큼 서쪽으로 이동, 만약 X를 만나게되면 go를 false로 하여 switch문 통과
+                        if(parkpark[robotHeight][robotWeight-n].equals("X")){//robotWeight-n 만큼 서쪽으로 이동
+                        //만약 X를 만나게되면 go를 false로 하여 switch문 통과
                             go = false;
                     }
                     }
@@ -77,7 +80,8 @@ class Solution {
                             break;
                     }
                     for(int n=1;n<=count;n++){
-                        if(parkpark[robotHeight][robotWeight+n].equals("X")){//robotWeight+n 만큼 동쪽으로 이동, 만약 X를 만나게되면 go를 false로 하여 switch문 통과
+                        if(parkpark[robotHeight][robotWeight+n].equals("X")){//robotWeight+n 만큼 동쪽으로 이동
+                        //만약 X를 만나게되면 go를 false로 하여 switch문 통과
                             go = false;
                     }
                     }
