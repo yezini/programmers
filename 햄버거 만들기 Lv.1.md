@@ -24,3 +24,4 @@ for(int i=0; i < ingredient.length; i++) {
 }
 
 ```
+![image](https://github.com/yezini/programmers/assets/85025359/7146d440-8e99-4c41-87fd-c1cf973989ec)
