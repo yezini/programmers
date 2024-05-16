@@ -13,14 +13,14 @@ class Solution {
             int x1 = query[0]-1; // 2 -> 1
             int y1 = query[1]-1; // 2 -> 1
             int x2 = query[2]-1; // 5 -> 4
-            int y2 = query[3]-1; // 4 -> 3
+            int y2 = query[3]-1  // 4 -> 3
             int firstNum = square[x1][y2]; // 처음으로 밀려서 덮어씌어진 숫자 10을 저장하기 위한 변수
             int min = firstNum;
 
-            /* 시계방향 */
+            /* 시계방향으로 처리하기 위해서 순서를 시계와 반대방향으로 처리 */
             // 상단에서 숫자를 우로 이동
-            for(int i=y2-1; i>=y1; i--){
-                min = Math.min(min, square[x1][i]);
+            for(int i=y2-1; i>=y1; i--){ // 2
+                min = Math.min(min, square[x1][i]); // 가장 작은 값으로 덮어씌우기 때문에 덮어씌울 때마다 min 함수 사용
                 square[x1][i+1] = square[x1][i];
             }
 
@@ -63,7 +63,7 @@ class Solution {
         return square;
     }
 
-    public int[] solution(int rows, int columns, int[][] queries) {
+    public int[] solution(int rows, int columns, int[][] queries) { // 6, 6, [[2,2,5,4],[3,3,6,6],[5,1,6,3]]
         int[] answer = {};
         int[][] square = initSquare(rows, columns);
         return rotateNums(square, queries);
