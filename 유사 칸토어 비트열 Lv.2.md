@@ -25,7 +25,6 @@ class Solution {
             answer +=c;
             return;
         }
-												    //시작 4, 끝 17
 
         long startArea = start / areaLength;           //몫으로 시작 지점 구역 지정(Long 타입) 
         if(start % areaLength > 0){  
