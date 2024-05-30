@@ -1,5 +1,6 @@
 ```java
 /* 풀이 참고하여 미완성 */
+// 11011 11011 00000 11011 11011 (3구역 포함여부로 나눠서 처리)
 class Solution {
     int answer;
     public int solution(int n, long l, long r) {  //n=3 (총 5^(n-1)개)(1의 개수 16, 0의 개수 9 ), 시작과 끝 범위 
@@ -26,8 +27,8 @@ class Solution {
         }
 												    //시작 4, 끝 17
 
-        long startArea = start / areaLength;           //시작 지점 구역 
-        if(start % areaLength > 0){ 
+        long startArea = start / areaLength;           //몫으로 시작 지점 구역 지정(Long 타입) 
+        if(start % areaLength > 0){  
             startArea++;
         }
         long endArea = end/areaLength;             //끝 지점 구역 
@@ -35,23 +36,23 @@ class Solution {
             endArea++;
         }
 
-        if(endArea > startArea){			// 같은 구역이 아니면 (전체 5구역 중 2구역, 4구역에 포함된 범위라면 )
+        if(endArea > startArea){			//같은 구역에 속해있는게 아니라면 (전체 5구역 중 2구역, 4구역에 포함된 범위라면 )
             long includArea = endArea - startArea - 1L;
             if(startArea%5 < 3 && ((endArea)%5 >3 || endArea%5 == 0)){  // 3구역을 포함하고 있으면 
                 includArea--;
             }
             answer += (includArea*countOne);
 
-            if(startArea != 3) {                                //구역을 두 개로 나눠서 
+            if(startArea != 3) {                                //구역을 두 개로 나눠서 (시작지점이 3구역이 아닌경우)
                 dfs(areaLength / 5, countOne / 4, start, startArea * areaLength);     //시작부터 시작구역 끝부분 까지 
             }
-            if(endArea != 3){
+            if(endArea != 3){					//(끝지점이 3구역이 아닌경우)
                 dfs(areaLength/5 ,countOne/4, (endArea-1)*areaLength+1 , end);     //끝구역 시작부분부터 끝까지
             }
         }
         else{
             if(startArea == 3) return;                  //중간지역이 존재하지 않는다면 한번 더 재귀 
-            dfs(areaLength/5 ,countOne/4, start, end);
+            dfs(areaLength/5 ,countOne/4, start, end);  //지정된 범위시작부터 끝까지 재귀 
         }
 
     }
