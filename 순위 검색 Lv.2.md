@@ -14,7 +14,7 @@ class Solution {
             dfs(0, "", a.split(" "));
         }
 
-        // 해시맵 값의 리스트들을 오름차순으로 정렬
+        // 해시맵 값의 리스트들을 오름차순으로 정렬 -> 정렬을 통한 이분탐색을 통해 원하는 점수 이상인 것을 더 빠르게 뽑아냄 
         for (ArrayList<Integer> list : hashMap.values()) {
             Collections.sort(list);
         }
@@ -24,14 +24,14 @@ class Solution {
             String[] data = q.split(" and "); // [java,backend,junior,pizza 100]
 
             String[] s = data[3].split(" "); // [pizza,100]
-            int target = Integer.parseInt(s[1]); // 100점
+            int target = Integer.parseInt(s[1]); // 100
             data[3] = s[0]; // pizza 100 -> pizza
-
             // data = [java,backend,junior,pizza]
+
             String key = String.join("", data); // javabackendjuniorpizza
 
               if (hashMap.containsKey(key)) { // 해쉬맵이 조건 정보를 가지고 있다면
-                ArrayList<Integer> list = hashMap.get(key); // 해쉬맵 키로 값을 구한 후 배열
+                ArrayList<Integer> list = hashMap.get(key); // 해쉬맵 키로 값(점수)을 구한 후 배열 생성 
                 int start = 0;
                 int end = list.size() - 1;
 
@@ -54,7 +54,7 @@ class Solution {
 
     static void dfs(int depth, String query, String[] info) {
 
-        if(depth == 4){ // 즉 점수에 해당하는 부분
+        if(depth == 4){ // 즉, 점수에 해당하는 부분
             if (!hashMap.containsKey(query)) {
                 score = new ArrayList<>();
                 score.add(Integer.parseInt(info[4]));
