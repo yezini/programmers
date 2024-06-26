@@ -1,4 +1,5 @@
 ```java
+// 가입자를 최대한 늘리는게 우선이며 2번째 목표가 판매액을 높이는 것 
 class Solution {
     
 int sign=0;
@@ -6,7 +7,7 @@ int earn=0;
     public int[] solution(int[][] users, int[] emoticons) {
         // users 사용자 n명의 구매 기준을 담은 2차원 정수 배열 [[40, 10000], [25, 10000]] 
         // (40% 이상의 할인이 있는 이모티콘을 모두 구매, 10000원 이상의 돈을 사용하여 구매하면 구매를 모두 취소하고 가입)
-        // emoticons 이모티콘 정가 
+        // emoticons 이모티콘 정가 [7000, 9000]
         
         int[] answer = new int [2]; // 결과적으로 가입 수와 판매액 
         
@@ -44,27 +45,26 @@ int earn=0;
             int price =user[1]; // 가격 10000 
             int sum=0; 
             
-            for(int i=0;i<arr.length;i++){ //2번 
-                if(arr[i]>=discount){  
-                    sum+=(emoticons[i]/100)*(100-arr[i]);
+            for(int i=0;i<arr.length;i++){  
+                if(arr[i]>=discount){   // 할인 기준 40보다 크거나 같은경우 
+                    sum+=(emoticons[i]/100)*(100-arr[i]);  //7000원 40% 할인받아 4200원에 해당 
                 }
             }
             
-            if(sum>=price){
-                count++;
+            if(sum>=price){ // 만약 총 금액이 10000보다 많아질경우 
+                count++;    // 해당 이모티콘 플러스 서비스 가입 수 증가  
             }
-            else{
-                earn_t+=sum;
+            else{            // 아닐 경우에는 수익을 증가 
+                earn_t+=sum; 
             }  
         }
-        
-        
-        if(count>sign){
+
+// 할인율에 대해서 가입한 회원과 수익을 지금까지 구한 최대 회원과 최대 수익을 비교하여 최적의 수를 구하기 
+        if(count > sign){
             sign=count;
             earn=earn_t;
             return;
-        }    
-        else if(count==sign){
+        }else if(count == sign){
             if(earn<earn_t){
                 earn=earn_t;
             }
